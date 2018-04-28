@@ -1,0 +1,8 @@
+{
+    "canales": [
+        {"nombre": "Bcom" },
+        {"nombre": "Bmovil"},
+        {"nombre": "Sucursal"},
+        {"nombre": "ATMBBVA"}
+    ]
+}
