@@ -1,0 +1,9 @@
+{
+    "canales": [
+        {"var1": "dev_Bcom" },
+        {"var2": "dev_Bmovil"},
+        {"var3": "dev_Sucursal"},
+        {"var4": "dev_ATMBBVA"},
+        {"var5": "dev_campus"}
+    ]
+}
