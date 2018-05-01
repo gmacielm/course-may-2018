@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+ border:0;
+ padding:0; 
+}
+
+root{
+    --primary: #33e8db;
+    --normal-size: 14px;  
+    --size-collage: 84px;
+  }
+
+nav { 
+    display: grid;
+    grid-template-columns: 200px  repeat(4, 1fr) 200px;
+    background-color: #33e8db;
+    height: 60px;
+}
+
+.sitio {
+        top: 50%;
+        font-size: 14px;
+        color: whitesmoke;
+        font-weight: bold;
+        text-align: right;
+}
+.menu{
+    font-size: 10px;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.aplica{
+    font-size: 14px;
+    color: whitesmoke;
+    font-weight: bold;
+    text-align: left; 
+}
+
+.menu, .sitio, #img_main, .cuerpo, .bodies, .aplica, .reticle {
+    border: 2px  solid black; 
+}
+
+#img_main{
+    height: 350px;
+    background-image: url("homepage_cover.jpg");
+    background-size: cover;
+    background-position: center;
+   }
+
+#hp_cover {
+        height:250px;
+        width: 100%;
+}
+
+.cuerpo { 
+    display: grid;
+    grid-template-columns: 200px 930px 200px;
+    background-color: #daedf1;
+    height: 360px;
+}
+
+.bod_lateral{
+    background-color: #daedf1;
+}
+
+.numeralia, .data_nume { 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color:  whitesmoke;
+    height: 50px;
+}
+
+.azul_numera{
+    font-size: 24px;
+    color: #2409f5;
+    font-weight: bolder;
+    text-align: center; 
+}
+
+.green_numera{
+    font-size: 24px;
+    color:#14e674;
+    font-weight: bolder;
+    text-align: center; 
+}
+
+.data_numera{
+    font-size: 12px;
+    color:#9a8484;
+    /*font-weight: bolder; */
+    text-align: center; 
+}
+
+.equation {
+    padding-top: 10px;
+    font-size: 14px;
+    color:whitesmoke;
+    background-color: black;
+    font-weight: bolder;
+    text-align: center;
+    vertical-align: middle;
+    height: 35px;
+}
+
+.reticle { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+    background-color:  whitesmoke;
+    height: 50px;
+}
+
+.collage1 {
+    height: 250px;
+    background-image: url("Academy.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+collage2 {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+#front_img {
+    height: 125px;
+    background-image: url("front-end-card-image.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.front_end {
+  padding-top: 20px;
+  padding-bottom: 0px;
+  padding-left: 35px;
+  font-size: var(--size-collage);
+  color: #2eccbd;
+  font-weight: bolder;
+  background-color:#415261; 
+  vertical-align: middle;
+  height: 130px;
+}
+
+.subtitle {
+    margin:0px;
+    font-size: 10px;
+    color: whitesmoke;
+    vertical-align: top;
+}

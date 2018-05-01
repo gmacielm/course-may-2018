@@ -1,0 +1,18 @@
+<DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale1.0">
+<title>Document</title>
+</head>
+<body>
+    <section>
+        <div> Soy el div 1<div>
+        <div> Soy el div 2<div>
+        <div id="div3"> Soy el div 2<div>
+        <p>Hola a todos soy una oración relativamente larga</p>
+        <p>Hola!!</p>
+    </section>
+    
+</body>
+</html>
