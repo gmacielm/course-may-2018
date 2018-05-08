@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale1.0">
+<title>vanilla</title>
+<body>
+
+<hello-component my-name="Arges"></hello-component>
+
+<script>
+ (function (customElements) {
+     'use stric';
+
+     class HelloComponent extends HTMLElement{
+
+        constructor() {
+        super();
+        this.myName;
+                
+        const shadowRoot = this.attachShadow({mode: 'open'});
+        shadowRoot.innerHTML = `
+            <style>
+                h1 {
+                    color: blue;
+                    font-size: 40px;
+                   }
+            </style>
+            <h1>  Oi ${this.myName} </h1>
+            <h2>Hola ${this.myName}</h2>
+            <p>Vanilla first component</p>            
+            
+            `;
+         }
+
+        get myName() {
+            return this.getAttribute('my-name');
+        }
+
+        changeName(otherName){
+            this.myName = otherName;
+        }
+    }
+    customElements.define('hello-component', HelloComponent);
+       
+ })(window.customElements);
+
+</script>
+
+<script>
+
+</script>
+
+</body>
+</head>
+</html>

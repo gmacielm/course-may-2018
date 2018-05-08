@@ -1,0 +1,218 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale1.0">
+<title>Web Component Progress Bar versión Vanilla (v1.0)</title>
+<body>
+
+<progress-bar-v0></progress-bar-v0>
+
+<script>
+ (function (customElements) {
+     'use stric';
+
+     class ProgressBarV0 extends HTMLElement{
+
+        constructor() {
+        super();     
+        
+        const shadowRoot = this.attachShadow({mode: 'open'});
+        shadowRoot.innerHTML = `
+            <style>
+             :root {
+                    border: 0;
+                    padding: 0;
+                }
+
+                .progress__main {
+                    background-color: gainsboro;
+                    border: 2px solid black;
+                    border-radius: 5px;
+                    margin: 25px 35px;
+                    width:1200px;
+                }
+
+                 .progress__background{
+                    background-color: black;
+                    border-radius: 5px;
+                    margin: 25px 35px;
+                    max-width: 1000px;
+                    height:30px;
+                }
+
+                .progress__bar{
+                    background-color: rgb(214, 33, 33);
+                    border: 2px solid black;
+                    border-radius: 5px;
+                    margin: 25px 1px;
+                    width: 1%;
+                    height: 90%;
+                    max-width: 100%;
+                }
+
+                #id_progress__bar{
+                    background-color: rgb(214, 33, 33);
+                    border: 2px solid black;
+                    border-radius: 5px;
+                    margin: 25px 1px;
+                    width: 1%;
+                    height: 90%;
+                    max-width: 100%;
+                }
+
+                 .progress__bar--slow{
+                    transition: width 9s;
+                }
+
+                .progress__bar--fast{
+                    transition: width 2s;
+                }
+
+                .progress_div_buttons{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .progress__button{
+                    background-color: rgb(24, 223, 41);
+                    border: 2px solid white;
+                    border-radius: 5px;   
+                    color:    whitesmoke;         
+                    font-family: arial;
+                    font-size: 15px;
+                    font-weight: bold;
+                    height: 55px;
+                    margin: 25px 35px 35px 350px;    
+                    padding: 10px;      
+                }
+
+                .progress__button--show{    
+                    display: inline-block;    
+                }
+
+                .progress__button--hidde{    
+                    display: none;    
+                }
+
+                .progress__button--fast{
+                    background-color: rgb(53, 21, 235);
+                    border: 2px solid white;
+                    border-radius: 5px;
+                    margin: 25px 35px;
+                    color:    whitesmoke;
+                    font-family: arial;
+                    font-size: 15px;
+                    font-weight: bold;
+                    height: 55px;
+                    padding: 10px;  
+                    display: inline-block;
+                }
+
+                 .progress__button--slow{
+                    background-color: rgb(235, 203, 21);
+                    border: 2px solid white;
+                    border-radius: 5px;
+                    margin: 25px 35px;
+                    color:    whitesmoke;
+                    font-family: arial;
+                    font-size: 15px;
+                    font-weight: bold;
+                    height: 55px;
+                    padding: 10px;  
+                    display: inline-block;
+                }  
+            </style>
+         `;       
+        
+        let progress__main = document.createElement('div');
+        progress__main.className = 'progress__main';
+        
+        let progress__background = document.createElement('div');
+        progress__background.className = 'progress__background';
+        progress__main.appendChild(progress__background);
+
+        let progressBarE = document.createElement('div');
+        progressBarE.id = 'id_progress__bar';        
+        progressBarE.className = 'progress__bar';        
+        progress__background.appendChild(progressBarE);
+
+        let progress_div_buttons = document.createElement('div');
+        progress_div_buttons.className = 'progress_div_buttons';
+        progress__main.appendChild(progress_div_buttons);
+
+        let buttonFast = document.createElement('button');        
+        buttonFast.textContent ='Rapido';        
+        buttonFast.className = 'progress__button--fast';
+        progress_div_buttons.appendChild(buttonFast);
+        
+        let buttonSlow= document.createElement('button');        
+        buttonSlow.textContent ='Lento';
+        buttonSlow.className = 'progress__button--slow';
+        progress_div_buttons.appendChild(buttonSlow);
+
+        let button_start= document.createElement('button');        
+        button_start.textContent ='Inicia';
+        button_start.className = 'progress__button--hidde';
+        progress_div_buttons.appendChild(button_start);
+        
+
+        shadowRoot.appendChild(progress__main);
+        
+
+        buttonFast.addEventListener( 'click', () => {
+            progressBarE.classList.toggle('progress__bar--fast');
+            buttonSlow.style.display = 'none';
+            button_start.classList.remove('progress__button--hidde');
+            button_start.classList.add('progress__button');
+            button_start.classList.add('progress__button--show');
+        });
+
+
+        buttonSlow.addEventListener( 'click', () => {
+            progressBarE.classList.toggle('progress__bar--slow');
+            buttonFast.style.display = 'none';
+            button_start.classList.remove('progress__button--hidde');
+            button_start.classList.add('progress__button');
+            button_start.classList.add('progress__button--show');
+        }); 
+
+
+        button_start.addEventListener( 'click', () => {
+            start_bar(progressBarE);
+        }); 
+
+        const getRandomInt = (min, max) => {
+            return Math.floor(Math.random() * (max - min)) + min;
+         }
+
+
+        const start_bar= (progressBar) => {
+
+        const max = 101;
+        let min = 1;
+
+        while(min < max) {
+            let nonce = getRandomInt(min, max);
+            min = nonce +1;
+            if( (max-min) < 1)  { min =101; }
+
+            //const  progressBar = document.getElementById('id_progress__bar');
+            progressBar.style.width = nonce +'%';
+        }
+    }
+
+        } // contr
+    }   // class  
+    
+    customElements.define('progress-bar-v0', ProgressBarV0);
+   
+ })(window.customElements);
+
+</script>
+
+</body>
+</head>
+</html>
